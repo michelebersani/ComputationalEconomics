@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/michelebersani/Desktop/Scuola/V_anno/AgentBasedEconomics/project/code/board.cpp
+iostream
+-
+algorithm
+-
+cstdlib
+-
+string
+-
+board.h
+/Users/michelebersani/Desktop/Scuola/V_anno/AgentBasedEconomics/project/code/board.h
+
+/Users/michelebersani/Desktop/Scuola/V_anno/AgentBasedEconomics/project/code/board.h
+string
+-
+rules.h
+/Users/michelebersani/Desktop/Scuola/V_anno/AgentBasedEconomics/project/code/rules.h
+
+/Users/michelebersani/Desktop/Scuola/V_anno/AgentBasedEconomics/project/code/rules.h
+vector
+-
+

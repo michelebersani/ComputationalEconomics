@@ -1,0 +1,51 @@
+#include "solvers.h"
+#include <fstream>
+#include <string>
+#include <thread>
+
+ThreadSolver::ThreadSolver(Board *parent){
+    this->parentPtr = parent;
+}
+
+void ThreadSolver::solve(int numSteps, int numWorkers, std::string savePath){
+    std::ofstream myFile(savePath);
+    myFile << "ciao" << std::endl;
+    myFile.close();
+//
+//    int N = parentPtr->N;
+//    int M = parentPtr->M;
+//
+//    std::vector< std::pair<int,int> > ranges(numWorkers);
+//    int delta { N * M / numWorkers };
+//
+//    for(int i = 0; i < numWorkers; i++) {
+//        ranges[i].first = i * delta;
+//        ranges[i].second = i != (numWorkers - 1) ? (i + 1) * delta : N * M;
+//    }
+//
+//    auto threadProcess = [&](std::pair<int,int> r, Board * parentPtr) noexcept {
+//        for(int i = r.first; i < r.second; i++)
+//            parentPtr->updateCell(i);
+//        };
+//
+//    for (int i = 0; i < numSteps; i++) {
+//
+//        parentPtr->swapBoards();
+//
+//        std::vector<std::thread> tids;
+//        for(int i = 0; i < numWorkers; i++) {    // assign chuncks to threads
+//            tids.push_back(std::thread(threadProcess, ranges[i], parentPtr));
+//        }
+//
+//        for(std::thread& t: tids) {              // await thread termination
+//            t.join();
+//        }
+//
+//        if(!savePath.empty()){
+//            myFile << parentPtr->getEncodedBoard() << std::endl;
+//        }
+//    }
+//    if(!savePath.empty()){
+//        myFile.close();
+//    }
+}
