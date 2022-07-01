@@ -23,6 +23,12 @@ iostream
 -
 fstream
 -
+memory
+-
+sstream
+-
+stdexcept
+-
 string
 -
 

@@ -28,7 +28,7 @@ class Board{
     public:
         Board(int N, int M, short int cellStates, UpdateRule &rule);
 
-        void addGosperGliderGun();
+        void addGosperGliderGunToInitialState();
         void setUpdateRule(UpdateRule& rule);
         void defineInitialState(std::vector<std::vector<short int>> &matrix);
         void reset();

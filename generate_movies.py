@@ -1,8 +1,7 @@
-# Python code to implement Conway's Game Of Life
 import argparse
 import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import matplotlib.pyplot as plt
 
 
 def runlength_decode(encoded_seq, N):
@@ -31,12 +30,13 @@ def main():
 	parser = argparse.ArgumentParser(description="Runs Conway's Game of Life simulation.")
 
 	# add arguments
-	parser.add_argument('--savePath', dest='movfile', required=False)
+	parser.add_argument('--inputPath', dest='inputPath', required=True)
+	parser.add_argument('--savePath', dest='savePath', required=False)
 	args = parser.parse_args()
 
 	N = 100
 	grids = [np.ones((N, N))]
-	with open("output.txt") as file:
+	with open(args.inputPath) as file:
 		for line in file:
 			grids.append(runlength_decode([int(number) for number in line.split(', ')], N))
 
@@ -50,14 +50,12 @@ def main():
 		update,
 		fargs=(img, grids, N),
 		frames=len(grids),
-		interval=250,
+		interval=100,
 		save_count=50
 	)
 
-	if args.movfile:
-		ani.save(args.movfile, fps=4, extra_args=['-vcodec', 'libx264'])
-	plt.show()
-
+	if args.savePath:
+		ani.save(args.savePath, fps=10, extra_args=['-vcodec', 'libx264'])
 
 # call main
 if __name__ == '__main__':

@@ -10,46 +10,46 @@ Board::Board(int N, int M, short int cellStates, UpdateRule &rule) : N(N), M(M),
     pastBoard = std::vector<short int> (N*M);
 }
 
-void Board::addGosperGliderGun(){
+void Board::addGosperGliderGunToInitialState(){
 
-    presentBoard[5*M + 1] = 1;
-    presentBoard[5*M + 2] = 1;
-    presentBoard[6*M + 1] = 1;
-    presentBoard[6*M + 2] = 1;
+    initialState[5*M + 1] = 1;
+    initialState[5*M + 2] = 1;
+    initialState[6*M + 1] = 1;
+    initialState[6*M + 2] = 1;
 
-    presentBoard[3*M + 13] = 1;
-    presentBoard[3*M + 14] = 1;
-    presentBoard[4*M + 12] = 1;
-    presentBoard[4*M + 16] = 1;
-    presentBoard[5*M + 11] = 1;
-    presentBoard[5*M + 17] = 1;
-    presentBoard[6*M + 11] = 1;
-    presentBoard[6*M + 15] = 1;
-    presentBoard[6*M + 17] = 1;
-    presentBoard[6*M + 18] = 1;
-    presentBoard[7*M + 11] = 1;
-    presentBoard[7*M + 17] = 1;
-    presentBoard[8*M + 12] = 1;
-    presentBoard[8*M + 16] = 1;
-    presentBoard[9*M + 13] = 1;
-    presentBoard[9*M + 14] = 1;
+    initialState[3*M + 13] = 1;
+    initialState[3*M + 14] = 1;
+    initialState[4*M + 12] = 1;
+    initialState[4*M + 16] = 1;
+    initialState[5*M + 11] = 1;
+    initialState[5*M + 17] = 1;
+    initialState[6*M + 11] = 1;
+    initialState[6*M + 15] = 1;
+    initialState[6*M + 17] = 1;
+    initialState[6*M + 18] = 1;
+    initialState[7*M + 11] = 1;
+    initialState[7*M + 17] = 1;
+    initialState[8*M + 12] = 1;
+    initialState[8*M + 16] = 1;
+    initialState[9*M + 13] = 1;
+    initialState[9*M + 14] = 1;
 
-    presentBoard[1*M + 25] = 1;
-    presentBoard[2*M + 23] = 1;
-    presentBoard[2*M + 25] = 1;
-    presentBoard[3*M + 21] = 1;
-    presentBoard[3*M + 22] = 1;
-    presentBoard[4*M + 21] = 1;
-    presentBoard[4*M + 22] = 1;
-    presentBoard[5*M + 21] = 1;
-    presentBoard[5*M + 22] = 1;
-    presentBoard[6*M + 23] = 1;
-    presentBoard[6*M + 25] = 1;
-    presentBoard[7*M + 25] = 1;
-    presentBoard[3*M + 35] = 1;
-    presentBoard[3*M + 36] = 1;
-    presentBoard[4*M + 35] = 1;
-    presentBoard[4*M + 36] = 1;
+    initialState[1*M + 25] = 1;
+    initialState[2*M + 23] = 1;
+    initialState[2*M + 25] = 1;
+    initialState[3*M + 21] = 1;
+    initialState[3*M + 22] = 1;
+    initialState[4*M + 21] = 1;
+    initialState[4*M + 22] = 1;
+    initialState[5*M + 21] = 1;
+    initialState[5*M + 22] = 1;
+    initialState[6*M + 23] = 1;
+    initialState[6*M + 25] = 1;
+    initialState[7*M + 25] = 1;
+    initialState[3*M + 35] = 1;
+    initialState[3*M + 36] = 1;
+    initialState[4*M + 35] = 1;
+    initialState[4*M + 36] = 1;
 }
 
 void Board::setUpdateRule(UpdateRule& rule){
@@ -101,14 +101,13 @@ std::string Board::getEncodedBoard(){
     int currentChar = presentBoard[0];
     encoding.append(std::to_string(currentChar));
     encoding.append(", ");
-    encoding.append(", ");
     int leftBound = 0;
     for (int i=0; i<N*M; ++i){
         if (presentBoard[i] != currentChar) {
             encoding.append(std::to_string(i-leftBound));
             encoding.append(", ");
             currentChar = presentBoard[i];
-            int leftBound = i;
+            leftBound = i;
         }
     }
     encoding.append(std::to_string(N*M-leftBound));

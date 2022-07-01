@@ -15,4 +15,23 @@ class GameOfLifeRule : public UpdateRule{
         short int operator() (short int centre, short int up, short int down, short int left, short int right, short int upLeft, short int upRight, short int downLeft, short int downRight);
 };
 
+
+class GameOfLifeStochasticRule : public UpdateRule{
+    private:
+        float p_death;
+        float p_birth;
+    public:
+        GameOfLifeStochasticRule(float p_death, float p_birth);
+        short int operator() (short int centre, short int up, short int down, short int left, short int right, short int upLeft, short int upRight, short int downLeft, short int downRight);
+};
+
+class VonNeumannStochasticRule : public UpdateRule{
+    private:
+        float p_death;
+        float p_birth;
+    public:
+        VonNeumannStochasticRule(float p_death, float p_birth);
+        short int operator() (short int centre, short int up, short int down, short int left, short int right, short int upLeft, short int upRight, short int downLeft, short int downRight);
+};
+
 #endif
