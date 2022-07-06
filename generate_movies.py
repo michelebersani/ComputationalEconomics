@@ -50,12 +50,12 @@ def main():
 		update,
 		fargs=(img, grids, N),
 		frames=len(grids),
-		interval=100,
+		interval=50,
 		save_count=50
 	)
 
 	if args.savePath:
-		ani.save(args.savePath, fps=10, extra_args=['-vcodec', 'libx264'])
+		ani.save(args.savePath, fps=20, extra_args=['-vcodec', 'libx264'])
 
 # call main
 if __name__ == '__main__':
