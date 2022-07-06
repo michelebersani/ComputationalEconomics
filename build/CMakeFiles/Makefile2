@@ -123,9 +123,9 @@ CMakeFiles/rules.dir/clean:
 # Target rules for target CMakeFiles/thread.dir
 
 # All Build rule for target.
+CMakeFiles/thread.dir/all: CMakeFiles/rules.dir/all
 CMakeFiles/thread.dir/all: CMakeFiles/board.dir/all
 CMakeFiles/thread.dir/all: CMakeFiles/thread_solver.dir/all
-CMakeFiles/thread.dir/all: CMakeFiles/rules.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread.dir/build.make CMakeFiles/thread.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread.dir/build.make CMakeFiles/thread.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/michelebersani/Desktop/Scuola/V_anno/AgentBasedEconomics/project/build/CMakeFiles --progress-num=5,6 "Built target thread"
